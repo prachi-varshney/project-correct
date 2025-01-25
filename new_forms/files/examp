@@ -1,0 +1,13 @@
+// Original date string
+var dateString = '2005-09-10';
+
+// Split the date string into an array
+var dateArray = dateString.split('-');
+
+// Rearrange the array elements to switch year, month, day to day, month, year
+var rearrangedArray = [dateArray[2], dateArray[1], dateArray[0]];
+
+// Join the array elements back into a string with '-' separator
+var newDateString = rearrangedArray.join('-');
+
+console.log(newDateString); // Output: '10-09-2005'

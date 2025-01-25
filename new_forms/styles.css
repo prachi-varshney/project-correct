@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+#tab-0, #tab-1 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+    overflow-x: auto !important;
+}
+
+.table th, .table td {
+    text-align: center;
+    white-space: nowrap !important;
+}
+
+/* .sort {
+  cursor: pointer;
+} */
+
+.col-min-width {
+    min-width: 100px !important;
+}
+
+
+#currentImage {
+  display: none;
+  width: 250px;
+  height: 150px;
+
+}
+
+div.pic, div#imgDel {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.error {
+  color: red;
+  font-size: small;
+  margin-top: px;
+  display: none;
+}
+
+#data-table th img {
+  width: 14px;
+  height: 14px;
+  margin-left: 35px;
+}
+
+#data-table th span {
+  margin-left: 45px;
+}
+
+#data-table th[data-column] {
+  cursor: pointer;
+}
+
+.eye-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; /* Adjust the right spacing as per your design */
+  background-color: white; /* Set the background color of the toggle button */
+  padding: 5px; /* Adjust padding as needed */
+  /*border-radius: 50%;  Makes it round */
+}
+
+.eye-toggle img {
+  display: block;
+}
+
+button#prevPage {
+  margin-right: 10px;
+}
+
+button#nextPage {
+  margin-left: 10px;
+}
+
+
+.required {
+  color: red;
+}
+
+
+    

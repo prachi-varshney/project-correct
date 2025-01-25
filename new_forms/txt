@@ -1,0 +1,30 @@
+if ($stmt->execute()) {
+    if (move_uploaded_file($_FILES['profile']['tmp_name'], $target_file)) {
+        $response['success'] = true;
+        $response['update'] = $id ? true : false;
+        $last_id = $id ? $id : $stmt->insert_id;
+        $response['id'] = $last_id;
+
+        // Fetch city and state names
+        $sql = "
+        SELECT e.id, e.name, e.password, e.email, e.phone, e.dob, e.address, d.district_name AS city_name, s.state_name, e.pincode, e.country, e.experience, e.salary, e.hobbies, e.gender, e.bio, e.profile
+        FROM employees e
+        JOIN ms_district_master d ON e.city = d.district_id
+        JOIN ms_state_master s ON e.state = s.state_id
+        WHERE e.id = ?
+        ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $last_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $response = array_merge($response, $result->fetch_assoc());
+        }
+    } else {
+        $response['success'] = false;
+        $response['error'] = 'Failed to upload profile image.';
+    }
+} else {
+    $response['success'] = false;
+    $response['error'] = 'Failed to submit data.';
+} 
